@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bài tập 3 - Countdown Timer</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.timer-box{
+    max-width:500px;
+    margin:50px auto;
+    background:#fff;
+    padding:40px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+#timer{
+    font-size:60px;
+    color:#0d6efd;
+    font-weight:bold;
+    margin:30px 0;
+}
+
+.warning{
+    color:red !important;
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+
+0%{opacity:1;}
+
+50%{opacity:.2;}
+
+100%{opacity:1;}
+
+}
+
+.group-btn{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.group-btn button{
+
+width:150px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>BÀI TẬP 3</h1>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Trang chủ</a></li>
+<li><a href="baitap01.html">Bài 1</a></li>
+<li><a href="baitap02.html">Bài 2</a></li>
+<li><a href="baitap03.html">Bài 3</a></li>
+<li><a href="about.html">Lý thuyết</a></li>
+<li><a href="contact.html">Điểm danh</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<main>
+
+<div class="timer-box">
+
+<h2>Countdown Timer</h2>
+
+<div id="timer">
+
+10:00
+
+</div>
+
+<div class="group-btn">
+
+<button onclick="startTimer()">
+
+Bắt đầu
+
+</button>
+
+<button onclick="resetTimer()">
+
+Đặt lại
+
+</button>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<p>Đề thi kết thúc học phần</p>
+
+</footer>
+
+<script>
+
+let time=600;
+
+let interval=null;
+
+const timer=document.getElementById("timer");
+
+function updateDisplay(){
+
+let minute=Math.floor(time/60);
+
+let second=time%60;
+
+timer.innerHTML=
+
+String(minute).padStart(2,"0")
+
++":"
+
++
+
+String(second).padStart(2,"0");
+
+if(time<=60){
+
+timer.classList.add("warning");
+
+}
+
+}
+
+updateDisplay();
+
+function startTimer(){
+
+if(interval!==null){
+
+return;
+
+}
+
+interval=setInterval(function(){
+
+time--;
+
+updateDisplay();
+
+if(time<=0){
+
+clearInterval(interval);
+
+interval=null;
+
+alert("Đã hết thời gian!");
+
+}
+
+},1000);
+
+}
+
+function resetTimer(){
+
+clearInterval(interval);
+
+interval=null;
+
+time=600;
+
+timer.classList.remove("warning");
+
+updateDisplay();
+
+}
+
+</script>
+
+</body>
+
+</html>

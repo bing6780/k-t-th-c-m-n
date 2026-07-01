@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trả lời lý thuyết</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+
+<h1>TRẢ LỜI LÝ THUYẾT</h1>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Trang chủ</a></li>
+<li><a href="baitap01.html">Bài 1</a></li>
+<li><a href="baitap02.html">Bài 2</a></li>
+<li><a href="baitap03.html">Bài 3</a></li>
+<li><a href="about.html">Lý thuyết</a></li>
+<li><a href="contact.html">Điểm danh</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<main>
+
+<div class="card">
+
+<h2>Bài 1</h2>
+
+<p>
+Dữ liệu sản phẩm được lưu trong một mảng JavaScript gồm nhiều object.
+Sử dụng hàm <b>filter()</b> để tìm kiếm theo tên sản phẩm.
+Để không phân biệt chữ hoa và chữ thường, dữ liệu nhập vào và tên sản phẩm đều được chuyển sang chữ thường bằng <b>toLowerCase()</b>.
+Nếu không tìm thấy sản phẩm thì hiển thị thông báo "Không tìm thấy sản phẩm".
+</p>
+
+<p>
+Để hạn chế lỗi injection, dữ liệu nhập từ người dùng được xử lý bằng <b>trim()</b> và chỉ dùng để so sánh chuỗi, không thực thi bằng <b>eval()</b> hay chèn trực tiếp vào mã JavaScript.
+</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Bài 2</h2>
+
+<p>
+Sự kiện submit của form được xử lý bằng JavaScript.
+Sử dụng <b>event.preventDefault()</b> để ngăn trình duyệt tải lại trang.
+</p>
+
+<p>
+Email được kiểm tra bằng Regular Expression.
+Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường và số.
+Sau khi hợp lệ, dữ liệu được lưu bằng LocalStorage.
+</p>
+
+<p>
+Trong thực tế, không nên lưu mật khẩu dạng văn bản trong LocalStorage.
+Mật khẩu nên được gửi đến máy chủ qua HTTPS và lưu dưới dạng đã băm (hash) để tăng tính bảo mật.
+</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>Bài 3</h2>
+
+<p>
+Đồng hồ sử dụng setInterval() để giảm thời gian mỗi giây.
+Khi hết giờ sẽ gọi clearInterval() để dừng bộ đếm, tránh tạo nhiều interval gây tiêu tốn bộ nhớ (memory leak).
+</p>
+
+<p>
+Khi triển khai lên Hosting hoặc Domain, có thể đồng bộ thời gian bằng timestamp từ máy chủ thay vì chỉ đếm thời gian trên trình duyệt nhằm tăng độ chính xác.
+</p>
+
+</div>
+
+</main>
+
+<footer>
+
+<p>Đề thi kết thúc học phần</p>
+
+</footer>
+
+</body>
+</html>

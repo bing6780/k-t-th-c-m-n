@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1 - Danh sách sản phẩm</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .search-box{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            margin:30px 0;
+            flex-wrap:wrap;
+        }
+
+        .search-box input{
+            width:300px;
+            padding:10px;
+        }
+
+        .search-box button{
+            width:120px;
+        }
+
+        .price{
+            color:red;
+            font-weight:bold;
+            margin-top:10px;
+        }
+
+        #message{
+            text-align:center;
+            color:red;
+            margin-top:20px;
+            font-size:18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>BÀI TẬP 1</h1>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Trang chủ</a></li>
+<li><a href="baitap01.html">Bài 1</a></li>
+<li><a href="baitap02.html">Bài 2</a></li>
+<li><a href="baitap03.html">Bài 3</a></li>
+<li><a href="about.html">Lý thuyết</a></li>
+<li><a href="contact.html">Điểm danh</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<main>
+
+<h2 style="text-align:center">Danh sách sản phẩm</h2>
+
+<div class="search-box">
+
+<input
+type="text"
+id="keyword"
+placeholder="Nhập tên sản phẩm...">
+
+<button onclick="searchProduct()">
+
+Tìm kiếm
+
+</button>
+
+</div>
+
+<p id="message"></p>
+
+<div id="productList" class="container">
+
+</div>
+
+</main>
+
+<footer>
+
+<p>Đề thi kết thúc học phần</p>
+
+</footer>
+
+<script>
+
+const products=[
+
+{
+name:"Laptop Dell",
+price:"18.000.000 VNĐ",
+image:"https://via.placeholder.com/300x200?text=Laptop"
+},
+
+{
+name:"iPhone 15",
+price:"24.000.000 VNĐ",
+image:"https://via.placeholder.com/300x200?text=iPhone"
+},
+
+{
+name:"Tai nghe Sony",
+price:"2.500.000 VNĐ",
+image:"https://via.placeholder.com/300x200?text=Sony"
+},
+
+{
+name:"Chuột Logitech",
+price:"800.000 VNĐ",
+image:"https://via.placeholder.com/300x200?text=Mouse"
+},
+
+{
+name:"Bàn phím cơ",
+price:"1.200.000 VNĐ",
+image:"https://via.placeholder.com/300x200?text=Keyboard"
+}
+
+];
+
+function displayProducts(list){
+
+const container=document.getElementById("productList");
+
+container.innerHTML="";
+
+list.forEach(product=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+<img src="${product.image}" alt="${product.name}">
+
+<h3>${product.name}</h3>
+
+<p class="price">${product.price}</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+displayProducts(products);
+
+function searchProduct(){
+
+const keyword=document
+.getElementById("keyword")
+.value
+.trim()
+.toLowerCase();
+
+const result=products.filter(product=>
+
+product.name.toLowerCase().includes(keyword)
+
+);
+
+if(result.length===0){
+
+document.getElementById("message").innerHTML="Không tìm thấy sản phẩm.";
+
+document.getElementById("productList").innerHTML="";
+
+}
+
+else{
+
+document.getElementById("message").innerHTML="";
+
+displayProducts(result);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
